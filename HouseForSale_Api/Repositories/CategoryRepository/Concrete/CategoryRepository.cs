@@ -14,6 +14,18 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             _context = context;
         }
 
+        public async void CreateCategory(CreateCategoryDto createCategoryDto)
+        {
+            string query = "Insert Into Category (Name, Status) values (@name, @status)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@name", createCategoryDto.Name);
+            parameters.Add("@status", true);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query,parameters);    
+            }
+         }
+
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
             string query = "Select * From Category";
