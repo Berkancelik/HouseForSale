@@ -22,11 +22,11 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             parameters.Add("@status", true);
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query,parameters);    
+                await connection.ExecuteAsync(query, parameters);
             }
-         }
+        }
 
-        public async  void DeleteCategory(int id)
+        public async void DeleteCategory(int id)
         {
             string query = "Delete From Cateory Where CategoryID=@categoryID";
             var parameters = new DynamicParameters();
@@ -35,7 +35,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             {
                 await connection.ExecuteAsync(query, parameters);
             }
-         }
+        }
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
@@ -45,6 +45,18 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
                 var values = await connection.QueryAsync<ResultCategoryDto>(query);
                 return values.ToList();
 
+            }
+        }
+
+        public async Task<GetByIdCategoryDto> GetCategoryDto(int id)
+        {
+            string query = "Select * From Category Where id = @id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIdCategoryDto>(query, parameters);
+                return values;
             }
         }
 
@@ -59,6 +71,6 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             {
                 await connection.ExecuteAsync(query, parameters);
             }
-         }
+        }
     }
 }

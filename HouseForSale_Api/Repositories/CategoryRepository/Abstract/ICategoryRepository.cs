@@ -7,7 +7,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Abstract
         Task<List<ResultCategoryDto>> GetAllCategoryAsync();
         void CreateCategory(CreateCategoryDto createCategoryDto);
         void UpdateCategory(UpdateCategoryDto updateCategoryDto);
-        
+        Task<GetByIdCategoryDto> GetCategoryDto(int id);
         void DeleteCategory(int id);
     }
 }

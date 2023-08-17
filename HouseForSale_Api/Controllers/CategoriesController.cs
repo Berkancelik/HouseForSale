@@ -45,5 +45,14 @@ namespace HouseForSale_Api.Controllers
             return Ok("Kategori başarıyla güncellendi ");
 
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            var value = _categoryRepository.GetCategoryDto(id);
+            return Ok(value);
+
+        }
     }
 }
