@@ -50,7 +50,7 @@ namespace HouseForSale_Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
-            var value = _categoryRepository.GetCategoryDto(id);
+            var value = await _categoryRepository.GetCategoryDto(id);
             return Ok(value);
 
         }
