@@ -28,6 +28,5 @@ namespace HouseForSale_Api.Controllers
             var values = await _productRepository.GetAllProductWtihCategoryAsync();
             return Ok(values);
         }
-
-    }
+     }
 }
