@@ -27,7 +27,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             }
         }
 
-        public async Task<List<ResultProductWithCategoryDto>> GetAllProductWtihCategoryAsync()
+        public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
         {
             string query = "Select Id,Title,Price,City,District,CategoryName From Product inner join Category on Product.ProductCategory = Category.Id";
             using (var connection = _context.CreateConnection())

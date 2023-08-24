@@ -10,7 +10,6 @@ namespace HouseForSale_Api.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
-
         public CategoriesController(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
@@ -22,37 +21,29 @@ namespace HouseForSale_Api.Controllers
             var values = await _categoryRepository.GetAllCategoryAsync();
             return Ok(values);
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
             _categoryRepository.CreateCategory(createCategoryDto);
-            return Ok("Kategori başarıyla eklendi");
+            return Ok("Kategori Başarılı Bir Şekilde Eklendi");
         }
-
-
         [HttpDelete]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             _categoryRepository.DeleteCategory(id);
-            return Ok("Kategori başarıyla silindi  ");
+            return Ok("Kategori Başarılı Bir Şekilde Silindi");
         }
-
-        [HttpDelete]
+        [HttpPut]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
             _categoryRepository.UpdateCategory(updateCategoryDto);
-            return Ok("Kategori başarıyla güncellendi ");
-
+            return Ok("Kategori Başarıyla Güncellendi");
         }
-
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
-            var value = await _categoryRepository.GetCategoryDto(id);
+            var value = await _categoryRepository.GetCategory(id);
             return Ok(value);
-
         }
     }
 }

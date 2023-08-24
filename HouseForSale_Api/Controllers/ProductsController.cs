@@ -22,11 +22,12 @@ namespace HouseForSale_Api.Controllers
             var values = await _productRepository.GetAllProductAsync();
             return Ok(values);
         }
-        [HttpGet("ProductListWtihCategory")]
-        public async Task<IActionResult> ProductListWtihCategory()
+
+        [HttpGet("ProductListWithCategory")]
+        public async Task<IActionResult> ProductListWithCategory()
         {
-            var values = await _productRepository.GetAllProductWtihCategoryAsync();
+            var values = await _productRepository.GetAllProductWithCategoryAsync();
             return Ok(values);
         }
-     }
+    }
 }
