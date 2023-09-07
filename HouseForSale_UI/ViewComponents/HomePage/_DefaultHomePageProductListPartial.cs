@@ -5,11 +5,11 @@ using Newtonsoft.Json.Linq;
 
 namespace HouseForSale_UI.ViewComponents.HomePage
 {
-    public class _DefaultHomePageProductList : ViewComponent
+    public class _DefaultHomePageProductListPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _DefaultHomePageProductList(IHttpClientFactory httpClientFactory)
+        public _DefaultHomePageProductListPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

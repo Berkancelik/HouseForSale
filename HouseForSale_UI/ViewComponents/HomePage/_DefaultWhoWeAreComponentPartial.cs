@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HouseForSale_UI.DTOs.ProductDtos.WhoWeAreDtos;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace HouseForSale_UI.ViewComponents.HomePage
