@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HouseForSale.ViewComponents.HomePage
+namespace HouseForSalewh.ViewComponents.HomePage
 {
     public class _DefaultBrandComponentPartial : ViewComponent
     {
