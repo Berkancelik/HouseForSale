@@ -12,12 +12,6 @@
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutSpinnerComponentPartial\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutSidebarComponentPartial\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutScriptComponentPartial\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutNavbarComponentPartial\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutHeadComponentPartial\" />
-    <Folder Include="Views\Shared\Components\_AdminLayoutFooterComponentPartial\" />
     <Folder Include="wwwroot\starter\images\" />
   </ItemGroup>
 
