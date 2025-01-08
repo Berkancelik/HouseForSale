@@ -1,4 +1,4 @@
-﻿using HouseForSale_UI.DTOs.ProductDtos.WhoWeAreDtos;
+﻿using HouseForSale_UI.DTOs.WhoWeAreDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
