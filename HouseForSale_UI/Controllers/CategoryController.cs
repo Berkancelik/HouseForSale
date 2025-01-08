@@ -11,7 +11,6 @@ namespace HouseForSale_UI.Controllers
 {
     public class CategoryController : Controller
     {
-        
         private readonly IHttpClientFactory _httpClientFactory;
         public CategoryController(IHttpClientFactory httpClientFactory)
         {
