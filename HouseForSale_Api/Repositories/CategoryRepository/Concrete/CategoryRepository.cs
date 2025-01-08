@@ -15,7 +15,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async void CreateCategory(CreateCategoryDto categoryDto)
         {
-            string query = "insert into Category (Name,Status) values (@categoryName,@categoryStatus)";
+            string query = "Insert into Category (Name,Status) values (@categoryName,@categoryStatus)";
             var parameters = new DynamicParameters();
             parameters.Add("@categoryName", categoryDto.Name);
             parameters.Add("@categoryStatus", true);
@@ -27,7 +27,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async void DeleteCategory(int id)
         {
-            string query = "Delete From Category Where Id=@categoryID";
+            string query = "Delete From Category Where CategoryId=@categoryID";
             var parameters = new DynamicParameters();
             parameters.Add("@categoryID", id);
             using (var connection = _context.CreateConnection())
@@ -48,7 +48,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async Task<GetByIdCategoryDto> GetCategory(int id)
         {
-            string query = "Select * From Category Where Id=@Id";
+            string query = "Select * From Category Where CategoryId=@Id";
             var parameters = new DynamicParameters();
             parameters.Add("@CategoIdryID", id);
             using (var connection = _context.CreateConnection())
@@ -60,7 +60,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async void UpdateCategory(UpdateCategoryDto categoryDto)
         {
-            string query = "Update Category Set Name=@categoryName,Status=@categoryStatus where Id=@categoryID";
+            string query = "Update Category Set Name=@categoryName,Status=@categoryStatus where CategoryId=@categoryID";
             var parameters = new DynamicParameters();
             parameters.Add("@categoryName", categoryDto.Name);
             parameters.Add("@categoryStatus", categoryDto.Status);
