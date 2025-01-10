@@ -30,7 +30,7 @@ namespace HouseForSale_Api.Repositories.EmployeeRepositories.Concrete
 
         public async Task DeleteEmployee(int id)
         {
-            string query = "Delete From Employee Where EmployeeID=@employeeID";
+            string query = "Delete From Employee Where EmployeeId=@employeeID";
             var parameters = new DynamicParameters();
             parameters.Add("@employeeID", id);
             using (var connection = _context.CreateConnection())
@@ -50,7 +50,7 @@ namespace HouseForSale_Api.Repositories.EmployeeRepositories.Concrete
         }
         public async Task<GetByIDEmployeeDto> GetEmployee(int id)
         {
-            string query = "Select * From Employee Where EmployeeID=@EmployeeID";
+            string query = "Select * From Employee Where EmployeeId=@EmployeeID";
             var parameters = new DynamicParameters();
             parameters.Add("@EmployeeID", id);
             using (var connection = _context.CreateConnection())
@@ -62,7 +62,7 @@ namespace HouseForSale_Api.Repositories.EmployeeRepositories.Concrete
 
         public async Task UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
         {
-            string query = "Update Employee Set Name=@name,Title=@title,Mail=@mail,PhoneNumber=@phoneNumber,ImageUrl=@imageUrl,Status=@status where EmployeeID=@employeeId";
+            string query = "Update Employee Set Name=@name,Title=@title,Mail=@mail,PhoneNumber=@phoneNumber,ImageUrl=@imageUrl,Status=@status where EmployeeId=@employeeId";
             var parameters = new DynamicParameters();
             parameters.Add("@name", updateEmployeeDto.Name);
             parameters.Add("@title", updateEmployeeDto.Title);

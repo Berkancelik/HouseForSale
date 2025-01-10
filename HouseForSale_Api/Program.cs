@@ -2,6 +2,8 @@ using HouseForSale_Api.Models.DapperContext;
 using HouseForSale_Api.Repositories.BottomGridRepositories;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
 using HouseForSale_Api.Repositories.CategoryRepository.Concrete;
+using HouseForSale_Api.Repositories.EmployeeRepositories.Abstract;
+using HouseForSale_Api.Repositories.EmployeeRepositories.Concrete;
 using HouseForSale_Api.Repositories.PopularLocationRepositories;
 using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
 using HouseForSale_Api.Repositories.ServiceRepository.Concrete;
@@ -18,6 +20,7 @@ builder.Services.AddTransient<IServiceRepository,ServiceRepository>();
 builder.Services.AddTransient<IBottomGridRepository, BottomGridRepository>();
 builder.Services.AddTransient<IPopularLocationRepository, PopularLocationRepository>();
 builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
