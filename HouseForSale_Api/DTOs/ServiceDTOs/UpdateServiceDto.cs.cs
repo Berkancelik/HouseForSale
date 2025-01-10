@@ -2,8 +2,8 @@
 {
     public class UpdateServiceDto
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool Status { get; set; }
+        public int ServiceID { get; set; }
+        public string ServiceName { get; set; }
+        public bool ServiceStatus { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HouseForSale_UI.DTOs.WhoWeAreDtos;
+﻿using HouseForSale_UI.DTOs.ServiceDtos;
+using HouseForSale_UI.DTOs.WhoWeAreDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,8 +16,8 @@ namespace HouseForSale_UI.ViewComponents.HomePage
         {
             var client = _httpClientFactory.CreateClient();
             var client2 = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44333/api/WhoWeAreDetail");
-            var responseMessage2 = await client2.GetAsync("https://localhost:44333/api/WhoWeAreDetail");
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/WhoWeAreDetail");
+            var responseMessage2 = await client2.GetAsync("http://localhost:5163/api/WhoWeAreDetail");
 
 
             if (responseMessage.IsSuccessStatusCode)
