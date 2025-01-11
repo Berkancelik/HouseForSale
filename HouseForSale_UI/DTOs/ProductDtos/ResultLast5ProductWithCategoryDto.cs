@@ -2,7 +2,7 @@
 {
     public class ResultLast5ProductWithCategoryDto
     {
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string City { get; set; }

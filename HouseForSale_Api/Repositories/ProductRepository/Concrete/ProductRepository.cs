@@ -16,7 +16,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
 
         public async Task CreateProduct(CreateProductDto createProductDto)
         {
-            string query = "insert into Product (Title,Price,City,District,CoverImage,Address,Description,Type,DealOfTheDay,AdvertisementDate,ProductStatus,ProductCategory,EmployeeID) values (@Title,@Price,@City,@District,@CoverImage,@Address,@Description,@Type,@DealOfTheDay,@AdvertisementDate,@ProductStatus,@ProductCategory,@EmployeeID)";
+            string query = "insert into Product (Title,Price,City,District,CoverImage,Address,Description,Type,DealOfTheDay,AdvertisementDate,ProductStatus,ProductCategory,EmployeeId) values (@Title,@Price,@City,@District,@CoverImage,@Address,@Description,@Type,@DealOfTheDay,@AdvertisementDate,@ProductStatus,@ProductCategory,@EmployeeID)";
             var parameters = new DynamicParameters();
             parameters.Add("@Title", createProductDto.Title);
             parameters.Add("@Price", createProductDto.Price);
@@ -47,7 +47,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
         {
-            string query = "Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID";
+            string query = "Select ProductId,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
@@ -57,7 +57,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
 
         public async Task<List<ResultLast3ProductWithCategoryDto>> GetLast3ProductAsync()
         {
-            string query = "Select Top(3) ProductID,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate,CoverImage,Description From Product Inner Join Category On Product.ProductCategory=Category.CategoryID  Order By ProductID Desc";
+            string query = "Select Top(3) ProductId,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate,CoverImage,Description From Product Inner Join Category On Product.ProductCategory=Category.CategoryID  Order By ProductID Desc";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultLast3ProductWithCategoryDto>(query);
@@ -66,7 +66,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task<List<ResultLast5ProductWithCategoryDto>> GetLast5ProductAsync()
         {
-            string query = "Select Top(5) ProductID,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate From Product Inner Join Category On Product.ProductCategory=Category.CategoryID Where Type='Kiralık' Order By ProductID Desc";
+            string query = "Select Top(5) ProductId,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate From Product Inner Join Category On Product.ProductCategory=Category.CategoryID Where Type='Kiralık' Order By ProductID Desc";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultLast5ProductWithCategoryDto>(query);
@@ -75,7 +75,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertListByEmployeeAsyncByFalse(int id)
         {
-            string query = "Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where EmployeeId=@employeeId and ProductStatus=0";
+            string query = "Select ProductId,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where EmployeeId=@employeeId and ProductStatus=0";
             var parameters = new DynamicParameters();
             parameters.Add("@employeeId", id);
             using (var connection = _context.CreateConnection())
@@ -86,7 +86,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertListByEmployeeAsyncByTrue(int id)
         {
-            string query = "Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where EmployeeId=@employeeId and ProductStatus=1";
+            string query = "Select ProductId,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where EmployeeId=@employeeId and ProductStatus=1";
             var parameters = new DynamicParameters();
             parameters.Add("@employeeId", id);
             using (var connection = _context.CreateConnection())
@@ -98,7 +98,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
 
         public async Task<List<ResultProductWithCategoryDto>> GetProductByDealOfTheDayTrueWithCategoryAsync()
         {
-            string query = "Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where DealOfTheDay=1";
+            string query = "Select ProductId,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheday From Product inner join Category on Product.ProductCategory=Category.CategoryID where DealOfTheDay=1";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
@@ -107,7 +107,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task<GetProductByProductIdDto> GetProductByProductId(int id)
         {
-            string query = "Select ProductID,Title,Price,City,District,Description,CategoryName,CoverImage,Type,Address,DealOfTheday,AdvertisementDate,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductId=@productId";
+            string query = "Select ProductId,Title,Price,City,District,Description,CategoryName,CoverImage,Type,Address,DealOfTheday,AdvertisementDate,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductId=@productId";
             var parameters = new DynamicParameters();
             parameters.Add("@productID", id);
             using (var connection = _context.CreateConnection())
@@ -130,7 +130,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task ProductDealOfTheDayStatusChangeToFalse(int id)
         {
-            string query = "Update Product Set DealOfTheDay=0 where ProductID=@productID";
+            string query = "Update Product Set DealOfTheDay=0 where ProductId=@productID";
             var parameters = new DynamicParameters();
             parameters.Add("@productID", id);
             using (var connection = _context.CreateConnection())
@@ -140,7 +140,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
         }
         public async Task ProductDealOfTheDayStatusChangeToTrue(int id)
         {
-            string query = "Update Product Set DealOfTheDay=1 where ProductID=@productID";
+            string query = "Update Product Set DealOfTheDay=1 where ProductId=@productID";
             var parameters = new DynamicParameters();
             parameters.Add("@productID", id);
             using (var connection = _context.CreateConnection())

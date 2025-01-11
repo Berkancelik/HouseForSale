@@ -2,7 +2,7 @@
 {
     public class UpdateProductDto
     {
-        public int productID { get; set; }
+        public int productId { get; set; }
         public string title { get; set; }
         public decimal price { get; set; }
         public string city { get; set; }
