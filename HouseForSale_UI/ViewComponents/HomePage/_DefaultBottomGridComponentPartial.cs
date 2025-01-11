@@ -1,4 +1,5 @@
 ﻿using HouseForSale_Api.DTOs.BottomGridDtos;
+using HouseForSale_UI.DTOs.BottomGridDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
  

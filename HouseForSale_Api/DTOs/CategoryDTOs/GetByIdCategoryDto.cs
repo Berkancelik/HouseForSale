@@ -2,8 +2,8 @@
 {
     public class GetByIdCategoryDto
     {
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
-        public bool MyPrStatusoperty { get; set; }
+        public bool Satus { get; set; }
     }
 }

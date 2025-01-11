@@ -18,7 +18,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()
         {
-            string query = "Select * From Prodcut";
+            string query = "Select * From Product";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultProductDto>(query);
@@ -27,15 +27,15 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             }
         }
 
-        public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
-        {
-            string query = "Select Id,Title,Price,City,District,CategoryName From Product inner join Category on Product.ProductCategory = Category.Id";
-            using (var connection = _context.CreateConnection())
-            {
-                var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
-                return values.ToList();
+		public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
+		{
+			string query = "Select ProductId,Title,Price,City,District,CategoryName,CoverImage,Type,Address From Product inner join Category on Product.ProductCategory=Category.CategoryId";
+			using (var connection = _context.CreateConnection())
+			{
+				var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
+				return values.ToList();
+			}
+		}
 
-            }
-        }
-    }
+	}
 }

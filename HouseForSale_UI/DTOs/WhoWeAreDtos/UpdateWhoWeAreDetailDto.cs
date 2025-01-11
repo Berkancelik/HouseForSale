@@ -1,8 +1,8 @@
-﻿namespace HouseForSale_UI.DTOs.ProductDtos.WhoWeAreDtos
+﻿namespace HouseForSale_UI.DTOs.WhoWeAreDtos
 {
-    public class ResultWhoWeAreDetailDto
+    public class UpdateWhoWeAreDetailDto
     {
-        public int Id { get; set; }
+        public int WhoWeAreDetailId { get; set; }
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public string Description1 { get; set; }

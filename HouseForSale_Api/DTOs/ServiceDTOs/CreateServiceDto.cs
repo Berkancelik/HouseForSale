@@ -2,7 +2,8 @@
 {
     public class CreateServiceDto
     {
-        public string Name { get; set; }
-        public bool Status { get; set; }
+       
+            public string ServiceName { get; set; }
+            public bool ServiceStatus { get; set; }
+        }
     }
-}
