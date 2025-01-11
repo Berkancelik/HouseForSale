@@ -1,8 +1,11 @@
+using HouseForSale_Api.Hubs;
 using HouseForSale_Api.Models.DapperContext;
 using HouseForSale_Api.Repositories.BottomGridRepository.Abstract;
 using HouseForSale_Api.Repositories.BottomGridRepository.Concrete;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
 using HouseForSale_Api.Repositories.CategoryRepository.Concrete;
+using HouseForSale_Api.Repositories.ContactRepository.Abstract;
+using HouseForSale_Api.Repositories.ContactRepository.Concrete;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Abstract;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Concrete;
 using HouseForSale_Api.Repositories.PopularLocationRepositories.Abstract;
@@ -26,6 +29,22 @@ builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
+builder.Services.AddTransient<IContactRepository, ContactRepository>();
+
+
+builder.Services.AddCors(option =>
+{
+
+    option.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    });
+
+});
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -43,10 +62,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<SignalRHub>("/signalrhub");
 app.Run();
