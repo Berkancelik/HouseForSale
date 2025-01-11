@@ -1,7 +1,5 @@
 ﻿using HouseForSale_Api.DTOs.ServiceDTOs;
 using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
-using HouseForSale_Api.Repositories.ServiceRepository.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers

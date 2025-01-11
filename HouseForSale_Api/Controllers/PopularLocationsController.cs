@@ -1,6 +1,5 @@
 ﻿using HouseForSale_Api.DTOs.PopularLocationDTOs;
 using HouseForSale_Api.Repositories.PopularLocationRepositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers
