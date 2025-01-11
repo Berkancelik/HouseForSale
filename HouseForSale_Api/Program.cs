@@ -1,5 +1,6 @@
 using HouseForSale_Api.Models.DapperContext;
-using HouseForSale_Api.Repositories.BottomGridRepositories;
+using HouseForSale_Api.Repositories.BottomGridRepository.Abstract;
+using HouseForSale_Api.Repositories.BottomGridRepository.Concrete;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
 using HouseForSale_Api.Repositories.CategoryRepository.Concrete;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Abstract;

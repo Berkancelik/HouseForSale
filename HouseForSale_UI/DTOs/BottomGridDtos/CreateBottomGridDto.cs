@@ -1,4 +1,4 @@
-﻿namespace HouseForSale_Api.DTOs.BottomGridDtos
+﻿namespace HouseForSale_UI.DTOs.BottomGridDtos
 {
     public class CreateBottomGridDto
     {

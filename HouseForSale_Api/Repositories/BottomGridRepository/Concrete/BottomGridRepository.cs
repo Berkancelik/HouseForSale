@@ -1,8 +1,9 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.BottomGridDtos;
 using HouseForSale_Api.Models.DapperContext;
+using HouseForSale_Api.Repositories.BottomGridRepository.Abstract;
 
-namespace HouseForSale_Api.Repositories.BottomGridRepositories
+namespace HouseForSale_Api.Repositories.BottomGridRepository.Concrete
 {
     public class BottomGridRepository : IBottomGridRepository
     {
@@ -12,7 +13,7 @@ namespace HouseForSale_Api.Repositories.BottomGridRepositories
         {
             _context = context;
         }
-        public async void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
+        public async Task CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             string query = "insert into BottomGrid (Icon,Title,Description) values (@icon,@title,@description)";
             var parameters = new DynamicParameters();
@@ -25,9 +26,9 @@ namespace HouseForSale_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async void DeleteBottomGrid(int id)
+        public async Task DeleteBottomGrid(int id)
         {
-            string query = "Delete From BottomGrid Where BottomGridID=@bottomGridID";
+            string query = "Delete From BottomGrid Where BottomGridId=@bottomGridID";
             var parameters = new DynamicParameters();
             parameters.Add("@bottomGridID", id);
             using (var connection = _context.CreateConnection())
@@ -36,7 +37,7 @@ namespace HouseForSale_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
+        public async Task<List<ResultBottomGridDto>> GetAllBottomGrid()
         {
             string query = "Select * From BottomGrid";
             using (var connection = _context.CreateConnection())
@@ -48,7 +49,7 @@ namespace HouseForSale_Api.Repositories.BottomGridRepositories
 
         public async Task<GetBottomGridDto> GetBottomGrid(int id)
         {
-            string query = "Select * From BottomGrid Where BottomGridID=@bottomGridID";
+            string query = "Select * From BottomGrid Where BottomGridId=@bottomGridID";
             var parameters = new DynamicParameters();
             parameters.Add("@bottomGridID", id);
             using (var connection = _context.CreateConnection())
@@ -58,9 +59,9 @@ namespace HouseForSale_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
+        public async Task UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
         {
-            string query = "Update BottomGrid Set Icon=@icon,Title=@title,Description=@description where BottomGridID=@bottomGridID";
+            string query = "Update BottomGrid Set Icon=@icon,Title=@title,Description=@description where BottomGridId=@bottomGridID";
             var parameters = new DynamicParameters();
             parameters.Add("@icon", updateBottomGridDto.Icon);
             parameters.Add("@title", updateBottomGridDto.Title);

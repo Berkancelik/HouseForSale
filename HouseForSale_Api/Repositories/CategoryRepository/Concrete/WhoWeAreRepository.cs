@@ -12,7 +12,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
         {
             _context = context;
         }
-        public async void CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
+        public async Task CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
         {
             string query = "insert into WhoWeAreDetail (Title,Subtitle,Description1,Description2) values (@title,@subTitle,@description1,@description2)";
             var parameters = new DynamicParameters();
@@ -26,9 +26,9 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             }
         }
 
-        public async void DeleteWhoWeAreDetail(int id)
+        public async Task DeleteWhoWeAreDetail(int id)
         {
-            string query = "Delete From WhoWeAreDetail Where Id=@whoWeAreDetailID";
+            string query = "Delete From WhoWeAreDetail Where WhoWeAreDetailID=@whoWeAreDetailID";
             var parameters = new DynamicParameters();
             parameters.Add("@whoWeAreDetailID", id);
             using (var connection = _context.CreateConnection())
@@ -37,7 +37,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             }
         }
 
-        public async Task<List<ResultWhoWeAreDetailDto>> GetAllWhoWeAreDetailAsync()
+        public async Task<List<ResultWhoWeAreDetailDto>> GetAllWhoWeAreDetail()
         {
             string query = "Select * From WhoWeAreDetail";
             using (var connection = _context.CreateConnection())
@@ -49,7 +49,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
 
         public async Task<GetByIDWhoWeAreDetailDto> GetWhoWeAreDetail(int id)
         {
-            string query = "Select * From WhoWeAreDetail Where Id=@whoWeAreDetailID";
+            string query = "Select * From WhoWeAreDetail Where WhoWeAreDetailId=@whoWeAreDetailID";
             var parameters = new DynamicParameters();
             parameters.Add("@whoWeAreDetailID", id);
             using (var connection = _context.CreateConnection())
@@ -59,9 +59,9 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
             }
         }
 
-        public async void UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
+        public async Task UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
         {
-            string query = "Update WhoWeAreDetail Set Title=@title,Subtitle=@subTitle,Description1=@description1,Description2=@description2 where Id=@whoWeAreDetailID";
+            string query = "Update WhoWeAreDetail Set Title=@title,Subtitle=@subTitle,Description1=@description1,Description2=@description2 where WhoWeAreDetailId=@whoWeAreDetailID";
             var parameters = new DynamicParameters();
             parameters.Add("@title", updateWhoWeAreDetailDto.Title);
             parameters.Add("@Subtitle", updateWhoWeAreDetailDto.Subtitle);
