@@ -30,7 +30,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Concrete
             parameters.Add("@AdvertisementDate", createProductDto.AdvertisementDate);
             parameters.Add("@ProductStatus", createProductDto.ProductStatus);
             parameters.Add("@ProductCategory", createProductDto.ProductCategory);
-            parameters.Add("@EmployeeID", createProductDto.EmployeeID);
+            parameters.Add("@EmployeeID", createProductDto.EmployeeId);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);

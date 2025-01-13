@@ -16,6 +16,9 @@
   <ItemGroup>
     <Folder Include="Areas\HouseForSaleAgent\Data\" />
     <Folder Include="Areas\HouseForSaleAgent\Models\" />
+    <Folder Include="Views\Shared\Components\_PropertySliderComponentPartial\" />
+    <Folder Include="Views\Shared\Components\_PropertyAppUserComponentPartial\" />
+    <Folder Include="Views\Shared\Components\_PropertyAmenityStatusTrueByPropertyIdComponentPartial\" />
     <Folder Include="wwwroot\starter\images\" />
   </ItemGroup>
 
