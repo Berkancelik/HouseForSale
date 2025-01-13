@@ -28,6 +28,8 @@ using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
 using HouseForSale_Api.Repositories.ServiceRepository.Concrete;
 using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
 using HouseForSale_Api.Repositories.StatisticsRepository.Concrete;
+using HouseForSale_Api.Repositories.SubFeatureRepository.Abstract;
+using HouseForSale_Api.Repositories.SubFeatureRepository.Concrete;
 using HouseForSale_Api.Repositories.TestimonialRepository.Abstract;
 using HouseForSale_Api.Repositories.TestimonialRepository.Concrete;
 
@@ -52,6 +54,7 @@ builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IPropertyAmenityRepository, PropertyAmenityRepository>();
 builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
 builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
+builder.Services.AddTransient<ISubFeatureRepository, SubFeatureRepository>();
  
 
 builder.Services.AddCors(option =>
