@@ -17,7 +17,7 @@ namespace HouseForSale_UI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44333/api/Products/ProductListWithCategory");
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/Products/ProductListWithCategory");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -38,7 +38,7 @@ namespace HouseForSale_UI.Controllers
             city = TempData["city"].ToString();
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:44333/api/Products/ResultProductWithSearchList?searchKeyValue={searchKeyValue}&propertyCategoryId={propertyCategoryId}&city={city}");
+            var responseMessage = await client.GetAsync($"http://localhost:5163/api/Products/ResultProductWithSearchList?searchKeyValue={searchKeyValue}&propertyCategoryId={propertyCategoryId}&city={city}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -53,12 +53,12 @@ namespace HouseForSale_UI.Controllers
         {
             ViewBag.i = id;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44333/api/Products/GetProductByProductId?id=" + id);
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/Products/GetProductByProductId?id=" + id);
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<ResultProductDto>(jsonData);
 
             var client2 = _httpClientFactory.CreateClient();
-            var responseMessage2 = await client2.GetAsync("https://localhost:44333/api/ProductDetails/GetProductDetailByProductId?id=" + id);
+            var responseMessage2 = await client2.GetAsync("http://localhost:5163/api/ProductDetails/GetProductDetailByProductId?id=" + id);
             var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
             var values2 = JsonConvert.DeserializeObject<GetProductDetailByIdDto>(jsonData2);
 

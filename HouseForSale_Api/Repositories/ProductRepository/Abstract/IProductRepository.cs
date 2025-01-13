@@ -15,6 +15,7 @@ namespace HouseForSale_Api.Repositories.ProductRepository.Abstract
         Task<List<ResultLast3ProductWithCategoryDto>> GetLast3ProductAsync();
         Task CreateProduct(CreateProductDto createProductDto);
         Task<GetProductByProductIdDto> GetProductByProductId(int id);
+ 
         Task<GetProductDetailByIdDto> GetProductDetailByProductId(int id);
         Task<List<ResultProductWithSearchListDto>> ResultProductWithSearchList(string searchKeyValue, int propertyCategoryId, string city);
         Task<List<ResultProductWithCategoryDto>> GetProductByDealOfTheDayTrueWithCategoryAsync();
