@@ -1,4 +1,4 @@
-﻿namespace HouseForSale_Api.Repositories.StatisticsRepositories.Abstract
+﻿namespace HouseForSale_Api.Repositories.StatisticsRepository.Abstract
 {
     public interface IStatisticsRepository
     {

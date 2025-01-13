@@ -1,9 +1,9 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.PopularLocationDTOs;
 using HouseForSale_Api.Models.DapperContext;
-using HouseForSale_Api.Repositories.PopularLocationRepositories.Abstract;
+using HouseForSale_Api.Repositories.MessageRepositories.Abstract;
 
-namespace HouseForSale_Api.Repositories.PopularLocationRepositories.Concrete
+namespace HouseForSale_Api.Repositories.MessageRepositories.Concrete
 {
     public class PopularLocationRepository : IPopularLocationRepository
     {

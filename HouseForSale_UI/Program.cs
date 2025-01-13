@@ -1,6 +1,11 @@
+using HouseForSale_UI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

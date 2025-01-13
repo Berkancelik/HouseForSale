@@ -8,13 +8,22 @@ using HouseForSale_Api.Repositories.ContactRepository.Abstract;
 using HouseForSale_Api.Repositories.ContactRepository.Concrete;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Abstract;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Concrete;
-using HouseForSale_Api.Repositories.PopularLocationRepositories.Abstract;
-using HouseForSale_Api.Repositories.PopularLocationRepositories.Concrete;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.ChartRepositories.Abstract;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.ChartRepositories.Concrete;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.LastProductsRepositories.Abstract;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.LastProductsRepositories.Concrete;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.StatisticRepositories.Abstract;
+using HouseForSale_Api.Repositories.HouseForSaleRepositories.DashborardRepositories.StatisticRepositories.Concrete;
+using HouseForSale_Api.Repositories.MessageRepositories.Abstract;
+using HouseForSale_Api.Repositories.MessageRepositories.Concrete;
+using HouseForSale_Api.Repositories.MessageRepository.Abstract;
+using HouseForSale_Api.Repositories.MessageRepository.Concrete;
 using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
 using HouseForSale_Api.Repositories.ServiceRepository.Concrete;
-using HouseForSale_Api.Repositories.StatisticsRepositories.Abstract;
-using HouseForSale_Api.Repositories.StatisticsRepositories.Concrete;
-using HouseForSale_Api.Repositories.TestimonialRepositories;
+using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
+using HouseForSale_Api.Repositories.StatisticsRepository.Concrete;
+using HouseForSale_Api.Repositories.TestimonialRepository.Abstract;
+using HouseForSale_Api.Repositories.TestimonialRepository.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +39,11 @@ builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
-
+builder.Services.AddTransient<IChartRepository, ChartRepository>();
+builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductsRepository>();
+builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
+builder.Services.AddTransient<IMessageRepository, MessageRepository>();
+ 
 
 builder.Services.AddCors(option =>
 {

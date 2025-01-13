@@ -1,8 +1,9 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.TestimonialDtos;
 using HouseForSale_Api.Models.DapperContext;
+using HouseForSale_Api.Repositories.TestimonialRepository.Abstract;
 
-namespace HouseForSale_Api.Repositories.TestimonialRepositories
+namespace HouseForSale_Api.Repositories.TestimonialRepository.Concrete
 {
     public class TestimonialRepository : ITestimonialRepository
     {

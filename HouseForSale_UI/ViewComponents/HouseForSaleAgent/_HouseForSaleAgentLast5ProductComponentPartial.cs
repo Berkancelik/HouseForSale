@@ -18,7 +18,7 @@ namespace HouseForSale_UI.ViewComponents.HouseForSaleAgent
         {
             var id = _loginService.GetUserId;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5163/api/EstateAgentLastProducts?id=" + id);
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/HouseForSaleAgentLastProducts?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

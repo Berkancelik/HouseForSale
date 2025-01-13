@@ -1,6 +1,6 @@
 ﻿using HouseForSale_Api.DTOs.PopularLocationDTOs;
 
-namespace HouseForSale_Api.Repositories.PopularLocationRepositories.Abstract
+namespace HouseForSale_Api.Repositories.MessageRepositories.Abstract
 {
     public interface IPopularLocationRepository
     {

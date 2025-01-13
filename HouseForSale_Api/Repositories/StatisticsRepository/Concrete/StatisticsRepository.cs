@@ -1,8 +1,8 @@
 ﻿using Dapper;
 using HouseForSale_Api.Models.DapperContext;
-using HouseForSale_Api.Repositories.StatisticsRepositories.Abstract;
+using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
 
-namespace HouseForSale_Api.Repositories.StatisticsRepositories.Concrete
+namespace HouseForSale_Api.Repositories.StatisticsRepository.Concrete
 {
     public class StatisticsRepository : IStatisticsRepository
     {

@@ -14,7 +14,7 @@ namespace HouseForSale_UI.ViewComponents.HouseForSaleAgent
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5163/api/EstateAgentChart");
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/HouseForSaleAgentChart");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
