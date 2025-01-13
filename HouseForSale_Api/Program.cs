@@ -1,5 +1,7 @@
 using HouseForSale_Api.Hubs;
 using HouseForSale_Api.Models.DapperContext;
+using HouseForSale_Api.Repositories.AppUserRepositories.Abstract;
+using HouseForSale_Api.Repositories.AppUserRepositories.Concrete;
 using HouseForSale_Api.Repositories.BottomGridRepository.Abstract;
 using HouseForSale_Api.Repositories.BottomGridRepository.Concrete;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
@@ -49,6 +51,7 @@ builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IPropertyAmenityRepository, PropertyAmenityRepository>();
 builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
+builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
  
 
 builder.Services.AddCors(option =>
