@@ -1,7 +1,12 @@
+using HouseForSale_UI.Models;
 using HouseForSale_UI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettingsKey"));
 
 builder.Services.AddHttpContextAccessor();
 
