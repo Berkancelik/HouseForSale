@@ -1,5 +1,6 @@
 ﻿using HouseForSale_Api.DTOs.WhoWeAreDetailDTOs;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,25 +19,25 @@ namespace HouseForSale_Api.Controllers
         [HttpGet]
         public async Task<IActionResult> WhoWeAreDetailList()
         {
-            var values = await _whoWeAreDetailRepository.GetAllWhoWeAreDetailAsync();
+            var values = await _whoWeAreDetailRepository.GetAllWhoWeAreDetail();
             return Ok(values);
         }
         [HttpPost]
         public async Task<IActionResult> CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
         {
-            _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
+            await _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
             return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWhoWeAreDetail(int id)
         {
-            _whoWeAreDetailRepository.DeleteWhoWeAreDetail(id);
+            await _whoWeAreDetailRepository.DeleteWhoWeAreDetail(id);
             return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
         public async Task<IActionResult> UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
         {
-            _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
+            await _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
             return Ok("Hakkımızda Kısmı Başarıyla Güncellendi");
         }
         [HttpGet("{id}")]

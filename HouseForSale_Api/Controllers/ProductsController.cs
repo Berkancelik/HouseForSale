@@ -1,5 +1,6 @@
-﻿using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
-using Microsoft.AspNetCore.Http;
+﻿using HouseForSale_Api.DTOs.ProductDTOs;
+using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
+using HouseForSale_Api.Repositories.ProductRepository.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers
@@ -28,75 +29,75 @@ namespace HouseForSale_Api.Controllers
             var values = await _productRepository.GetAllProductWithCategoryAsync();
             return Ok(values);
         }
-        //[HttpGet("ProductDealOfTheDayStatusChangeToTrue/{id}")]
-        //public async Task<IActionResult> ProductDealOfTheDayStatusChangeToTrue(int id)
-        //{
-        //    _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
-        //    return Ok("İlan Günün Fırsatları Arasına Eklendi");
-        //}
+        [HttpGet("ProductDealOfTheDayStatusChangeToTrue/{id}")]
+        public async Task<IActionResult> ProductDealOfTheDayStatusChangeToTrue(int id)
+        {
+            _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
+            return Ok("İlan Günün Fırsatları Arasına Eklendi");
+        }
 
-        //[HttpGet("ProductDealOfTheDayStatusChangeToFalse/{id}")]
-        //public async Task<IActionResult> ProductDealOfTheDayStatusChangeToFalse(int id)
-        //{
-        //    _productRepository.ProductDealOfTheDayStatusChangeToFalse(id);
-        //    return Ok("İlan Günün Fırsatları Arasından Çıkarıldı");
-        //}
+        [HttpGet("ProductDealOfTheDayStatusChangeToFalse/{id}")]
+        public async Task<IActionResult> ProductDealOfTheDayStatusChangeToFalse(int id)
+        {
+            _productRepository.ProductDealOfTheDayStatusChangeToFalse(id);
+            return Ok("İlan Günün Fırsatları Arasından Çıkarıldı");
+        }
 
-        //[HttpGet("Last5ProductList")]
-        //public async Task<IActionResult> Last5ProductList()
-        //{
-        //    var values = await _productRepository.GetLast5ProductAsync();
-        //    return Ok(values);
-        //}
+        [HttpGet("Last5ProductList")]
+        public async Task<IActionResult> Last5ProductList()
+        {
+            var values = await _productRepository.GetLast5ProductAsync();
+            return Ok(values);
+        }
 
-        //[HttpGet("ProductAdvertsListByEmployeeByTrue")]
-        //public async Task<IActionResult> ProductAdvertsListByEmployeeByTrue(int id)
-        //{
-        //    var values = await _productRepository.GetProductAdvertListByEmployeeAsyncByTrue(id);
-        //    return Ok(values);
-        //}
+        [HttpGet("ProductAdvertsListByEmployeeByTrue")]
+        public async Task<IActionResult> ProductAdvertsListByEmployeeByTrue(int id)
+        {
+            var values = await _productRepository.GetProductAdvertListByEmployeeAsyncByTrue(id);
+            return Ok(values);
+        }
 
-        //[HttpGet("ProductAdvertListByEmployeeByFalse")]
-        //public async Task<IActionResult> ProductAdvertListByEmployeeByFalse(int id)
-        //{
-        //    var values = await _productRepository.GetProductAdvertListByEmployeeAsyncByFalse(id);
-        //    return Ok(values);
-        //}
+        [HttpGet("ProductAdvertListByEmployeeByFalse")]
+        public async Task<IActionResult> ProductAdvertListByEmployeeByFalse(int id)
+        {
+            var values = await _productRepository.GetProductAdvertListByEmployeeAsyncByFalse(id);
+            return Ok(values);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CretaeProduct(CreateProductDto createProductDto)
-        //{
-        //    await _productRepository.CreateProduct(createProductDto);
-        //    return Ok("İlan başarıyla eklendi");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> CretaeProduct(CreateProductDto createProductDto)
+        {
+            await _productRepository.CreateProduct(createProductDto);
+            return Ok("İlan başarıyla eklendi");
+        }
 
-        //[HttpGet("GetProductByProductId")]
-        //public async Task<IActionResult> GetProductByProductId(int id)
-        //{
-        //    var values = await _productRepository.GetProductByProductId(id);
-        //    return Ok(values);
-        //}
+        [HttpGet("GetProductByProductId")]
+        public async Task<IActionResult> GetProductByProductId(int id)
+        {
+            var values = await _productRepository.GetProductByProductId(id);
+            return Ok(values);
+        }
 
-        //[HttpGet("ResultProductWithSearchList")]
-        //public async Task<IActionResult> ResultProductWithSearchList(string searchKeyValue, int propertyCategoryId, string city)
-        //{
-        //    var values = await _productRepository.ResultProductWithSearchList(searchKeyValue, propertyCategoryId, city);
-        //    return Ok(values);
-        //}
+        [HttpGet("ResultProductWithSearchList")]
+        public async Task<IActionResult> ResultProductWithSearchList(string searchKeyValue, int propertyCategoryId, string city)
+        {
+            var values = await _productRepository.ResultProductWithSearchList(searchKeyValue, propertyCategoryId, city);
+            return Ok(values);
+        }
 
-        //[HttpGet("GetProductByDealOfTheDayTrueWithCategory")]
-        //public async Task<IActionResult> GetProductByDealOfTheDayTrueWithCategory()
-        //{
-        //    var values = await _productRepository.GetProductByDealOfTheDayTrueWithCategoryAsync();
-        //    return Ok(values);
-        //}
+        [HttpGet("GetProductByDealOfTheDayTrueWithCategory")]
+        public async Task<IActionResult> GetProductByDealOfTheDayTrueWithCategory()
+        {
+            var values = await _productRepository.GetProductByDealOfTheDayTrueWithCategoryAsync();
+            return Ok(values);
+        }
 
-        //[HttpGet("GetLast3Product")]
-        //public async Task<IActionResult> GetLast3Product()
-        //{
-        //    var values = await _productRepository.GetLast3ProductAsync();
-        //    return Ok(values);
-        //}
+        [HttpGet("GetLast3Product")]
+        public async Task<IActionResult> GetLast3Product()
+        {
+            var values = await _productRepository.GetLast3ProductAsync();
+            return Ok(values);
+        }
 
     }
 }

@@ -1,11 +1,13 @@
 ﻿using HouseForSale_UI.DTOs.EmployeeDtos;
 using HouseForSale_UI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HouseForSale_UI.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -21,11 +23,11 @@ namespace HouseForSale_UI.Controllers
             var userId = _loginService.GetUserId;
 
 
-            var token = User.Claims.FirstOrDefault(x => x.Type == "realestatetoken")?.Value;
+            var token = User.Claims.FirstOrDefault(x => x.Type == "houseforsaletoken")?.Value;
             if (token != null)
             {
                 var client = _httpClientFactory.CreateClient();
-                var responseMessage = await client.GetAsync("https://localhost:5163/api/Employees");
+                var responseMessage = await client.GetAsync("http://localhost:5163/api/Employees");
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     var jsonData = await responseMessage.Content.ReadAsStringAsync();

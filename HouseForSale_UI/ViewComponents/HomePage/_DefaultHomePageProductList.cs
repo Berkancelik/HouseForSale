@@ -17,7 +17,7 @@ namespace HouseForSale_UI.ViewComponents.HomePage
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync("https://localhost:44333/api/Products/GetProductByDealOfTheDayTrueWithCategory");
+			var responseMessage = await client.GetAsync("http://localhost:5163/api/Products/GetProductByDealOfTheDayTrueWithCategory");
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();

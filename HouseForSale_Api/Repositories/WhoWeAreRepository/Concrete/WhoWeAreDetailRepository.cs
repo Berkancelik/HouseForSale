@@ -1,10 +1,11 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.WhoWeAreDetailDTOs;
 using HouseForSale_Api.Models.DapperContext;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
 
 namespace HouseForSale_Api.Repositories.WhoWeAreRepository.Concrete
 {
-    public class WhoWeAreDetailRepository
+    public class WhoWeAreDetailRepository:IWhoWeAreDetailRepository
     {
         private readonly Context _context;
         public WhoWeAreDetailRepository(Context context)
@@ -60,7 +61,7 @@ namespace HouseForSale_Api.Repositories.WhoWeAreRepository.Concrete
 
         public async Task UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
         {
-            string query = "Update WhoWeAreDetail Set Title=@title,Subtitle=@subTitle,Description1=@description1,Description2=@description2 where WhoWeAreDetailId=@whoWeAreDetailID";
+            string query = "Update WhoWeAreDetail Set Title=@title,Subtitle=@subTitle,Description1=@description1,Description2=@description2 where WhoWeAreDetailID=@whoWeAreDetailID";
             var parameters = new DynamicParameters();
             parameters.Add("@title", updateWhoWeAreDetailDto.Title);
             parameters.Add("@Subtitle", updateWhoWeAreDetailDto.Subtitle);

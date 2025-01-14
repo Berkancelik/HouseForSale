@@ -3,7 +3,7 @@
     public class GetByIdCategoryDto
     {
         public int CategoryId { get; set; }
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public bool Satus { get; set; }
     }
 }

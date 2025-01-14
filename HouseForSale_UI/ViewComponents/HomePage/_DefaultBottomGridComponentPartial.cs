@@ -1,5 +1,4 @@
-﻿using HouseForSale_Api.DTOs.BottomGridDtos;
-using HouseForSale_UI.DTOs.BottomGridDtos;
+﻿using HouseForSale_UI.DTOs.BottomGridDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
  
@@ -15,7 +14,7 @@ namespace HouseForSalewh.ViewComponents.HomePage
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44333/api/BottomGrids");
+            var responseMessage = await client.GetAsync("http://localhost:5163/api/BottomGrids");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
