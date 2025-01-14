@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="Areas\HouseForSaleAgent\Data\" />
     <Folder Include="Areas\HouseForSaleAgent\Models\" />
+    <Folder Include="Views\Shared\Components\NewFolder\" />
     <Folder Include="wwwroot\starter\images\" />
   </ItemGroup>
 

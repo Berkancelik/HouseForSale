@@ -1,5 +1,6 @@
 ﻿using HouseForSale_Api.DTOs.WhoWeAreDetailDTOs;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -27,7 +27,7 @@ namespace HouseForSale_UI.Controllers
             if (token != null)
             {
                 var client = _httpClientFactory.CreateClient();
-                var responseMessage = await client.GetAsync("https://localhost:5163/api/Employees");
+                var responseMessage = await client.GetAsync("http://localhost:5163/api/Employees");
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     var jsonData = await responseMessage.Content.ReadAsStringAsync();

@@ -37,7 +37,7 @@ namespace HouseForSale_UI.Controllers
             List<SelectListItem> categoryValues = (from x in values.ToList()
                                                    select new SelectListItem
                                                    {
-                                                       Text = x.Name,
+                                                       Text = x.CategoryName,
                                                        Value = x.CategoryId.ToString()
                                                    }).ToList();
             ViewBag.v = categoryValues;

@@ -70,7 +70,7 @@ namespace HouseForSale_UI.Controllers
             ViewBag.address = values.Address;
             ViewBag.type = values.Type;
             ViewBag.description = values.Description;
-            ViewBag.slugUrl = values.SlugUrl;
+            ViewBag.slugUrl = values.SlugURL;
 
             ViewBag.bathCount = values2.bathCount;
             ViewBag.bedCount = values2.bedRoomCount;

@@ -21,6 +21,8 @@ using HouseForSale_Api.Repositories.MessageRepository.Abstract;
 using HouseForSale_Api.Repositories.MessageRepository.Concrete;
 using HouseForSale_Api.Repositories.ProductImageRepositories.Abstract;
 using HouseForSale_Api.Repositories.ProductImageRepositories.Concrete;
+using HouseForSale_Api.Repositories.ProductRepository.Abstract;
+using HouseForSale_Api.Repositories.ProductRepository.Concrete;
 using HouseForSale_Api.Repositories.PropertyAmenityRepository.Abstract;
 using HouseForSale_Api.Repositories.PropertyAmenityRepository.Concrete;
 using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
@@ -31,6 +33,8 @@ using HouseForSale_Api.Repositories.SubFeatureRepository.Abstract;
 using HouseForSale_Api.Repositories.SubFeatureRepository.Concrete;
 using HouseForSale_Api.Repositories.TestimonialRepository.Abstract;
 using HouseForSale_Api.Repositories.TestimonialRepository.Concrete;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Concrete;
 
 namespace HouseForSale_Api.Containers
 {
@@ -49,7 +53,7 @@ namespace HouseForSale_Api.Containers
             services.AddTransient<ITestimonialRepository, TestimonialRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IStatisticsRepository, StatisticsRepository>();
-            services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
+            //services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
             services.AddTransient<IContactRepository, ContactRepository>();
             services.AddTransient<IChartRepository, ChartRepository>();
             services.AddTransient<ILast5ProductsRepository, Last5ProductsRepository>();
@@ -59,6 +63,7 @@ namespace HouseForSale_Api.Containers
             services.AddTransient<IProductImageRepository, ProductImageRepository>();
             services.AddTransient<IAppUserRepository, AppUserRepository>();
             services.AddTransient<ISubFeatureRepository, SubFeatureRepository>();
+            services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
 
         }
     }

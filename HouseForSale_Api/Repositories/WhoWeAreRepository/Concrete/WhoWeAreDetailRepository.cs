@@ -1,10 +1,11 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.WhoWeAreDetailDTOs;
 using HouseForSale_Api.Models.DapperContext;
+using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
 
 namespace HouseForSale_Api.Repositories.WhoWeAreRepository.Concrete
 {
-    public class WhoWeAreDetailRepository
+    public class WhoWeAreDetailRepository:IWhoWeAreDetailRepository
     {
         private readonly Context _context;
         public WhoWeAreDetailRepository(Context context)

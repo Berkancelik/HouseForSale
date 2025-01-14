@@ -13,7 +13,7 @@ namespace HouseForSale_Api.Repositories.StatisticsRepository.Concrete
         }
         public int ActiveCategoryCount()
         {
-            string query = "Select Count(*) From Category where CategoryStatus=1";
+            string query = "Select Count(*) From Category where Status=1";
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<int>(query);
@@ -152,7 +152,7 @@ namespace HouseForSale_Api.Repositories.StatisticsRepository.Concrete
 
         public int PassiveCategoryCount()
         {
-            string query = "Select Count(*) From Category Where CategoryStatus=0";
+            string query = "Select Count(*) From Category Where Status=0";
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<int>(query);

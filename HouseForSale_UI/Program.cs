@@ -54,7 +54,16 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseEndpoints(endpoints =>
-{ 
+{
+    endpoints.MapControllerRoute(
+        name: "property",
+        pattern: "property/{slug}/{id}",
+        defaults: new { controller = "Property", action = "PropertySingle" });
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
     endpoints.MapControllerRoute(
         name: "areas",
         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

@@ -16,7 +16,7 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
         {
             string query = "insert into Category (CategoryName,CategoryStatus) values (@categoryName,@categoryStatus)";
             var parameters = new DynamicParameters();
-            parameters.Add("@categoryName", categoryDto.Name);
+            parameters.Add("@categoryName", categoryDto.CategoryName);
             parameters.Add("@categoryStatus", true);
             using (var connection = _context.CreateConnection())
             {
@@ -56,9 +56,9 @@ namespace HouseForSale_Api.Repositories.CategoryRepository.Concrete
         }
         public async Task UpdateCategory(UpdateCategoryDto categoryDto)
         {
-            string query = "Update Category Set Name=@categoryName,Status=@categoryStatus where CategoryId=@categoryID";
+            string query = "Update Category Set CategoryName=@categoryName,Status=@categoryStatus where CategoryId=@categoryID";
             var parameters = new DynamicParameters();
-            parameters.Add("@categoryName", categoryDto.Name);
+            parameters.Add("@categoryName", categoryDto.CategoryName);
             parameters.Add("@categoryStatus", categoryDto.Status);
             parameters.Add("@categoryID", categoryDto.CategoryId);
             using (var connectiont = _context.CreateConnection())
