@@ -12,8 +12,7 @@ namespace HouseForSale_Api.Controllers
         {
             _statisticsRepository = statisticsRepository;
         }
-        //ActiveEmployeeCount
-
+ 
         [HttpGet("ActiveCategoryCount")]
         public IActionResult ActiveCategoryCount()
         {

@@ -27,6 +27,8 @@ using HouseForSale_Api.Repositories.PropertyAmenityRepository.Abstract;
 using HouseForSale_Api.Repositories.PropertyAmenityRepository.Concrete;
 using HouseForSale_Api.Repositories.ServiceRepository.Abstract;
 using HouseForSale_Api.Repositories.ServiceRepository.Concrete;
+using HouseForSale_Api.Repositories.SignUp.Concrete;
+using HouseForSale_Api.Repositories.SignUpRepository.Abstract;
 using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
 using HouseForSale_Api.Repositories.StatisticsRepository.Concrete;
 using HouseForSale_Api.Repositories.SubFeatureRepository.Abstract;
@@ -35,6 +37,7 @@ using HouseForSale_Api.Repositories.TestimonialRepository.Abstract;
 using HouseForSale_Api.Repositories.TestimonialRepository.Concrete;
 using HouseForSale_Api.Repositories.WhoWeAreRepository.Abstract;
 using HouseForSale_Api.Repositories.WhoWeAreRepository.Concrete;
+using HouseForSale_Api.Services.MailService;
 
 namespace HouseForSale_Api.Containers
 {
@@ -43,6 +46,7 @@ namespace HouseForSale_Api.Containers
         public static void ContainerDependencies(this IServiceCollection services) {
 
 
+            services.AddScoped<MailService>(); // MailService'ı DI konteynerine kaydediyoruz
 
             services.AddTransient<Context>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
@@ -64,6 +68,7 @@ namespace HouseForSale_Api.Containers
             services.AddTransient<IAppUserRepository, AppUserRepository>();
             services.AddTransient<ISubFeatureRepository, SubFeatureRepository>();
             services.AddTransient<IWhoWeAreDetailRepository, WhoWeAreDetailRepository>();
+            services.AddTransient<ISignUpUserRepository, SignUpUserRepository>();
 
         }
     }
