@@ -1,4 +1,4 @@
-﻿namespace HouseForSale_Api.DTOs.AppUserDtos
+﻿namespace HouseForSale_UI.DTOs.AppUserDtos
 {
     public class AppUserDto
     {
@@ -6,6 +6,9 @@
         public string Password { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public string VerificationCode { get; set; }
+
+        public int UserRole { get; set; } = 2;
+
+         public string VerificationCode { get; set; } = new Random().NextInt64(1000000000, 9999999999).ToString();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using HouseForSale_Api.DTOs.AppUserDtos;
-using HouseForSale_Api.DTOs.ProductImageDtos;
+using HouseForSale_Api.DTOs.VerifyCodeDtos;
 using HouseForSale_Api.Models.DapperContext;
 using HouseForSale_Api.Repositories.SignUpRepository.Abstract;
 using System.Data;
@@ -30,8 +30,7 @@ namespace HouseForSale_Api.Repositories.SignUp.Concrete
 
             using (var connection = _context.CreateConnection())
             {
-                var result = await connection.ExecuteAsync(query, parameters);
-                return result;
+                return await connection.ExecuteAsync(query, parameters);
             }
         }
 
@@ -44,8 +43,7 @@ namespace HouseForSale_Api.Repositories.SignUp.Concrete
 
             using (var connection = _context.CreateConnection())
             {
-                var result = await connection.QuerySingleOrDefaultAsync<AppUserDto>(query, parameters);
-                return result;
+                return await connection.QuerySingleOrDefaultAsync<AppUserDto>(query, parameters);
             }
         }
 
@@ -66,15 +64,14 @@ namespace HouseForSale_Api.Repositories.SignUp.Concrete
 
         public async Task<int> UpdateUserRoleAsync(string email)
         {
-            var query = "UPDATE AppUser SET UserRole = '2' WHERE Email = @Email"; // Update role after verification
+            var query = "UPDATE AppUser SET UserRole = '2' WHERE Email = @Email";
 
             var parameters = new DynamicParameters();
             parameters.Add("@Email", email);
 
             using (var connection = _context.CreateConnection())
             {
-                var result = await connection.ExecuteAsync(query, parameters);
-                return result;
+                return await connection.ExecuteAsync(query, parameters);
             }
         }
     }

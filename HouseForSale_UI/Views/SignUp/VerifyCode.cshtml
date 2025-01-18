@@ -1,0 +1,19 @@
+﻿@model HouseForSale_UI.DTOs.VerifyCodeDtos.VerifyCodeDto
+
+@{
+    ViewData["Title"] = "VerifyCode";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Doğrulama Kodu</h2>
+<form asp-action="VerifyCode" method="post">
+    <label for="Code">Doğrulama Kodu:</label>
+    <input type="text" id="Code" name="Code" required />
+
+    <button type="submit">Doğrula</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}

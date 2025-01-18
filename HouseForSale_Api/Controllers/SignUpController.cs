@@ -28,15 +28,22 @@ namespace HouseForSale_UI.Controllers
                 return BadRequest("Kullanıcı zaten mevcut.");
             }
 
-             var verificationCode = new Random().Next(100000, 999999).ToString();
+            var verificationCode = new Random().Next(100000, 999999).ToString();
             userDto.VerificationCode = verificationCode;
 
             var result = await _userRepository.CreateUserAsync(userDto);
 
             if (result > 0)
             {
-                _mailService.SendVerificationEmail(userDto.Email, verificationCode);
-                return Ok("Kullanıcı oluşturuldu. Doğrulama kodu için lütfen e-postanızı kontrol edin.");
+                try
+                {
+                    _mailService.SendVerificationEmail(userDto.Email, verificationCode);
+                    return Ok("Kullanıcı oluşturuldu. Doğrulama kodu için lütfen e-postanızı kontrol edin.");
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, "E-posta gönderimi sırasında bir hata oluştu: " + ex.Message);
+                }
             }
 
             return StatusCode(500, "Kullanıcı oluşturulurken bir hata oluştu.");

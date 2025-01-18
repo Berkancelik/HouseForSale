@@ -1,0 +1,30 @@
+﻿@model HouseForSale_UI.DTOs.AppUserDtos.AppUserDto
+
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+
+<h2>Kayıt Ol</h2>
+<form asp-action="Register" method="post">
+    <label for="UserName">Kullanıcı Adı:</label>
+    <input type="text" id="UserName" name="UserName" required />
+
+    <label for="Password">Şifre:</label>
+    <input type="password" id="Password" name="Password" required />
+
+    <label for="Name">Ad:</label>
+    <input type="text" id="Name" name="Name" required />
+
+    <label for="Email">E-posta:</label>
+    <input type="email" id="Email" name="Email" required />
+
+    <button type="submit">Kayıt Ol</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}

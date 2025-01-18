@@ -1,4 +1,4 @@
-﻿namespace HouseForSale_Api.DTOs.VerifyCodeDtos
+﻿namespace HouseForSale_UI.DTOs.VerifyCodeDtos
 {
     public class VerifyCodeDto
     {
