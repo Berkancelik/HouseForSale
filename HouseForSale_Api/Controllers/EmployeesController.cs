@@ -1,6 +1,5 @@
 ﻿using HouseForSale_Api.DTOs.EmployeeDtos;
 using HouseForSale_Api.Repositories.EmployeeRepositories.Abstract;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers

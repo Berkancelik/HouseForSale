@@ -2,7 +2,6 @@
 using HouseForSale_Api.DTOs.VerifyCodeDtos;
 using HouseForSale_Api.Repositories.SignUpRepository.Abstract;
 using HouseForSale_Api.Services.MailService;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_UI.Controllers

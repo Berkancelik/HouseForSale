@@ -1,4 +1,4 @@
-﻿ using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
+﻿using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers

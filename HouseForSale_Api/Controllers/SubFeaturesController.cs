@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class SubFeaturesController : ControllerBase
 	{

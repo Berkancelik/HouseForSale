@@ -2,7 +2,6 @@
 using HouseForSale_Api.DTOs.LoginDtos;
 using HouseForSale_Api.Models.DapperContext;
 using HouseForSale_Api.Tools;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers

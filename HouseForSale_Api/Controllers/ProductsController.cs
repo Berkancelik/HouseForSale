@@ -1,5 +1,4 @@
 ﻿using HouseForSale_Api.DTOs.ProductDTOs;
-using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
 using HouseForSale_Api.Repositories.ProductRepository.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
