@@ -1,6 +1,6 @@
-﻿@model CreateLoginDto
+﻿@model HouseForSale_UI.DTOs.AppUserDtos.AppUserDto
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Real Estate Kullanıcı Girişi</title>
+    <title>Real Estate Kayıt Ol</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -46,57 +46,62 @@
             </div>
         </div>
         <!-- Spinner End -->
-        <!-- Sign In Start -->
+        <!-- Register Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
-                            </a>
-                            <h3>Kullanıcı Giriş Sayfası</h3>
+                            <h3>Kayıt Ol</h3>
                         </div>
-                        <form method="post">
-                            @if (ViewData.ModelState.Count > 0 && !ViewData.ModelState.IsValid)
-                            {
-                                <div class="alert alert-danger" role="alert">
-                                    <ul>
-                                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-                                        {
-                                            <li>@error.ErrorMessage</li>
-                                        }
-                                    </ul>
-                                </div>
-                            }
-
+                        <form asp-action="Register" method="post" onsubmit="return validatePasswords();">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control @(ViewData.ModelState["UserName"]?.Errors.Count > 0 ? "is-invalid" : "")" id="floatingInput" asp-for="UserName" placeholder="kullanıcı adınızı yazınız...">
-                                <label for="floatingInput">Kullanıcı Adınız</label>
-                                <span class="text-danger" asp-validation-for="UserName"></span>
+                                <input type="text" class="form-control" id="floatingUserName" name="UserName" placeholder="Kullanıcı adınızı giriniz..." required>
+                                <label for="floatingUserName">Kullanıcı Adı</label>
                             </div>
-
-                            <div class="form-floating mb-4">
-                                <input type="password" class="form-control @(ViewData.ModelState["Password"]?.Errors.Count > 0 ? "is-invalid" : "")" id="floatingPassword" asp-for="Password" placeholder="şifreniz...">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" name="Password" placeholder="Şifrenizi giriniz..." required>
                                 <label for="floatingPassword">Şifre</label>
-                                <span class="text-danger" asp-validation-for="Password"></span>
                             </div>
-
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
-                                </div>
-                                <a href="">Şifremi Unuttum</a>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Şifrenizi tekrar giriniz..." required>
+                                <label for="floatingConfirmPassword">Şifre Tekrar</label>
                             </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Giriş Yap</button>
+                            <div id="passwordError" class="text-danger mb-3" style="display: none;">
+                                Şifreler uyuşmuyor. Lütfen tekrar deneyin.
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingName" name="Name" placeholder="Adınızı giriniz..." required>
+                                <label for="floatingName">Ad</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="email" class="form-control" id="floatingEmail" name="Email" placeholder="E-posta adresinizi giriniz..." required>
+                                <label for="floatingEmail">E-posta</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Kayıt Ol</button>
                         </form>
+                        <p class="text-center mb-0">Zaten bir hesabınız var mı? <a href="/Login">Giriş Yap</a></p>
 
-                         <p class="text-center mb-0">Bir hesabınız yok mu?<a href="">Kayıt Ol</a></p>
-                    </div>
+                        <script>
+                            function validatePasswords() {
+                                const password = document.getElementById('floatingPassword').value;
+                                const confirmPassword = document.getElementById('floatingConfirmPassword').value;
+                                const errorDiv = document.getElementById('passwordError');
+
+                                if (password !== confirmPassword) {
+                                    errorDiv.style.display = 'block'; // Hata mesajını göster
+                                    return false; // Formun gönderilmesini engelle
+                                }
+
+                                errorDiv.style.display = 'none'; // Hata mesajını gizle
+                                return true; // Form gönderilebilir
+                            }
+                        </script>
+                     </div>
                 </div>
             </div>
         </div>
-        <!-- Sign In End -->
+        <!-- Register End -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

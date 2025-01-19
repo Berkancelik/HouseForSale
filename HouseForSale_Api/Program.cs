@@ -1,6 +1,5 @@
 using HouseForSale_Api.Containers;
 using HouseForSale_Api.Hubs;
-using HouseForSale_Api.Models.DapperContext;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ContainerDependencies();

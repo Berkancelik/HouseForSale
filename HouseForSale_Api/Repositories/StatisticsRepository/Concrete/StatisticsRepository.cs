@@ -43,17 +43,17 @@ namespace HouseForSale_Api.Repositories.StatisticsRepository.Concrete
 
         public decimal AverageProductPriceByRent()
         {
-            string query = "Select Avg(Price) From Product where Type='Kiralık'";
+            string query = "Select Avg(Price) From Product where LTRIM(RTRIM(Type))='Kiralık'";
             using (var connection = _context.CreateConnection())
             {
-                var values = connection.QueryFirstOrDefault<decimal>(query);
-                return values;
+                var value = connection.QueryFirstOrDefault<decimal?>(query);
+                return value ?? 0; // Eğer sonuç NULL ise, 0 döner.
             }
         }
 
         public decimal AverageProductPriceBySale()
         {
-            string query = "Select Avg(Price) From Product where Type='Satılık'";
+            string query = "Select Avg(Price) From Product where LTRIM(RTRIM(Type))='Satılık'";
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<decimal>(query);

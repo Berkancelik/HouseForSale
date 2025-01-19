@@ -1,4 +1,4 @@
-﻿ using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
+﻿using HouseForSale_Api.Repositories.StatisticsRepository.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers
@@ -12,8 +12,7 @@ namespace HouseForSale_Api.Controllers
         {
             _statisticsRepository = statisticsRepository;
         }
-        //ActiveEmployeeCount
-
+ 
         [HttpGet("ActiveCategoryCount")]
         public IActionResult ActiveCategoryCount()
         {

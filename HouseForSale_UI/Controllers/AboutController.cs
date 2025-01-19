@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HouseForSale_Api.Controllers
+namespace HouseForSale_UI.Controllers
 {
-    public class AdminController : Controller
+    public class AboutController : Controller
     {
         public IActionResult Index()
         {

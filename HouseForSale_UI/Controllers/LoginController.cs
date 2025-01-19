@@ -1,12 +1,12 @@
-﻿using HouseForSale_UI.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using System.Text;
- using HouseForSale_UI.DTOs.LoginDtos;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using HouseForSale_UI.DTOs.LoginDtos;
+using HouseForSale_UI.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
 
 
 namespace HouseForSale_UI.Controllers

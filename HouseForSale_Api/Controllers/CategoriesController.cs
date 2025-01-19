@@ -1,6 +1,5 @@
 ﻿using HouseForSale_Api.DTOs.CategoryDTOs;
 using HouseForSale_Api.Repositories.CategoryRepository.Abstract;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers

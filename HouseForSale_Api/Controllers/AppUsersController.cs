@@ -1,5 +1,4 @@
 ﻿using HouseForSale_Api.Repositories.AppUserRepositories.Abstract;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseForSale_Api.Controllers
