@@ -19,22 +19,23 @@ public class SignUpController : Controller
         return View();
     }
 
-  
     [HttpGet]
     public IActionResult VerifyCode()
     {
+        if (HttpContext.Session.GetString("Email") == null)
+        {
+            return RedirectToAction("Register");
+        }
+
         return View();
     }
-
-    
-
 
     [HttpPost]
     public async Task<IActionResult> Register(AppUserDto userDto)
     {
         if (string.IsNullOrEmpty(userDto.VerificationCode))
         {
-            userDto.VerificationCode = new Random().NextInt64(1000000000, 9999999999).ToString();
+            userDto.VerificationCode = new Random().Next(100000, 999999).ToString();
         }
 
         var json = JsonSerializer.Serialize(userDto);
@@ -43,7 +44,9 @@ public class SignUpController : Controller
 
         if (response.IsSuccessStatusCode)
         {
-            TempData["Email"] = userDto.Email;
+            HttpContext.Session.SetString("Email", userDto.Email);
+            HttpContext.Session.SetInt32("AttemptCount", 0);
+
             return RedirectToAction("VerifyCode");
         }
 
@@ -53,13 +56,22 @@ public class SignUpController : Controller
 
     [HttpPost]
     public async Task<IActionResult> VerifyCode(VerifyCodeDto verifyCodeDto)
-{
-        verifyCodeDto.Email = TempData["Email"]?.ToString();
+    {
+        verifyCodeDto.Email = HttpContext.Session.GetString("Email");
 
         if (string.IsNullOrEmpty(verifyCodeDto.Email))
         {
             ViewBag.ErrorMessage = "E-posta adresi eksik.";
             return View();
+        }
+
+        int attemptCount = HttpContext.Session.GetInt32("AttemptCount") ?? 0;
+        if (attemptCount >= 5)
+        {
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Remove("AttemptCount"); 
+            TempData["ErrorMessage"] = "Çok fazla hatalı giriş yaptınız. Lütfen tekrar kayıt olun.";
+            return RedirectToAction("Register");
         }
 
         var json = JsonSerializer.Serialize(verifyCodeDto);
@@ -68,13 +80,13 @@ public class SignUpController : Controller
 
         if (response.IsSuccessStatusCode)
         {
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Remove("AttemptCount");
             return RedirectToAction("Index", "Login");
         }
 
-        ViewBag.ErrorMessage = await response.Content.ReadAsStringAsync();
+         HttpContext.Session.SetInt32("AttemptCount", attemptCount + 1);
+        ViewBag.ErrorMessage = "Doğrulama kodu hatalı. Lütfen tekrar deneyin.";
         return View();
     }
-
-
-
 }
